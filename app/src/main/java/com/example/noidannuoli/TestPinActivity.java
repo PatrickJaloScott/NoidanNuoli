@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CalendarView;
+import android.widget.EditText;
 
 import java.util.List;
 
@@ -22,14 +24,6 @@ public class TestPinActivity extends AppCompatActivity {
         Intent intent = getIntent();
     }
 
-    public void setPinLocation() {
-
-    }
-
-    public void setPinIntensity() {
-
-    }
-
     public void setPinDate(View view) {
         Log.i("my app","click?");
     }
@@ -38,7 +32,16 @@ public class TestPinActivity extends AppCompatActivity {
 
     }
 
-    public void addPin() {
+    public void addPin(View view) {
+        EditText editText = findViewById(R.id.editTextTextPinLocation);
+        pinAddition.setLocation(editText.getText().toString());
+        editText = findViewById(R.id.editTextIntensity);
+        pinAddition.setIntensity(Integer.parseInt(editText.getText().toString()));
+        CalendarView calendarView = findViewById(R.id.calendarView);
+        pinAddition.setDateOfPain(calendarView.getDate());
+
         pinCushion.add(pinAddition);
+        //Intent intent = new Intent(this, MainActivity.class);
+        finish();
     }
 }

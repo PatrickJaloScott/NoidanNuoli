@@ -14,9 +14,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="@string/enter_location"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="@string/enter_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPinLocation" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/editTextIntensity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -40,6 +40,7 @@
         android:hint="@string/intensity_input"
         android:inputType="number"
         android:minHeight="48dp"
+        android:numeric="integer"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/textViewIntensityQuestion" />
 
@@ -102,6 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:onClick="addPin"
         android:text="Done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,7 +116,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:onClick="setPinDate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
