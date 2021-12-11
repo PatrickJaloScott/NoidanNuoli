@@ -10,12 +10,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -48,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         intensitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                ((TextView) parent.getChildAt(0)).setTextSize(24);
+                selectedIntensity = intensitySpinner.getSelectedItem().toString();
             }
 
             @Override
@@ -56,16 +60,35 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+    public void calendarButtonPressed(View v) {
+        Intent intent = new Intent (MainActivity.this, CalendarActivity.class);
+        startActivity(intent);
     }
 
     public void saveClick(View v) {
         editedLocationtext = (EditText) findViewById(R.id.addPainText);
         String text = editedLocationtext.getText().toString();
-        editedPainText = (EditText) findViewById(R.id.painIntensityText);
-        String intens = editedPainText.getText().toString();
-        Pin pin = new Pin(text,intens);
-        Pincushion.getInstance().addPin(pin);
-        saveData();
+        //editedPainText = (EditText) findViewById(R.id.painIntensityText);
+        //String intens = editedPainText.getText().toString();
+        Intent dateFromCalendar = getIntent();
+        String date = dateFromCalendar.getStringExtra("date");
+        if (date == null) {
+            long dateLong = System.currentTimeMillis();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date dateD = new Date(dateLong);
+            String dateToday = simpleDateFormat.format(dateD);
+            Pin pin = new Pin(text, selectedIntensity, dateToday);
+            Pincushion.getInstance().addPin(pin);
+            saveData();
+        } else {
+            Pin pin = new Pin(text, selectedIntensity, date);
+            Pincushion.getInstance().addPin(pin);
+            saveData();
+        }
     }
 
     private void saveData(){

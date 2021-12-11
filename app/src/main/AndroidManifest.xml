@@ -10,14 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoidanNuoli">
         <activity
+            android:name=".CalendarActivity"
+            android:exported="false" />
+        <activity
             android:name=".HistoryDetailsActivity"
             android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:parentActivityName=".HistoryActivity"/>
+            android:parentActivityName=".HistoryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name=".HistoryActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

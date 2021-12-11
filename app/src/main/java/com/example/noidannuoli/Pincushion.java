@@ -1,6 +1,7 @@
 package com.example.noidannuoli;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Pincushion {
     private static final Pincushion pinInstance = new Pincushion();

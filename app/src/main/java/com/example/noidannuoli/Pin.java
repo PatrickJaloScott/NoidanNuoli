@@ -7,12 +7,13 @@ import java.util.Date;
 public class Pin {
     String location;
     String intensity;
-    long dateOfPain;
+    String dateOfPain;
     Time timeOfPain;
 
-    public Pin(String location, String intensity){
+    public Pin(String location, String intensity, String dateOfPain){
         this.location = location;
         this.intensity = intensity;
+        this.dateOfPain = dateOfPain;
     }
 
     public String getLocation() {
@@ -31,11 +32,11 @@ public class Pin {
         this.intensity = intensity;
     }
 
-    public long getDateOfPain() {
+    public String getDateOfPain() {
         return dateOfPain;
     }
 
-    public void setDateOfPain(long dateOfPain) {
+    public void setDateOfPain(String dateOfPain) {
         this.dateOfPain = dateOfPain;
     }
 
@@ -54,6 +55,6 @@ public class Pin {
     }*/
 
     public String toString(){
-        return "  " + this.location + "\n  " + "Intensity: " + this.intensity;
+        return "  " + this.location + "\n  " + "Intensity: " + this.intensity + "\n  " + this.dateOfPain;
     }
 }
