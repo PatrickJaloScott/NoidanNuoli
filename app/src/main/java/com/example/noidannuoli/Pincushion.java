@@ -3,22 +3,34 @@ package com.example.noidannuoli;
 import java.util.ArrayList;
 
 public class Pincushion {
-    private ArrayList<Pin> pins;
-    private static final Pincushion thisInstance = new Pincushion();
+    private static final Pincushion pinInstance = new Pincushion();
 
     public static Pincushion getInstance(){
-        return thisInstance;
+        return pinInstance;
     }
+
+    private ArrayList<Pin> pins;
+
     private Pincushion(){
-        this.pins = new ArrayList<Pin>();
+        pins = new ArrayList<>();
     }
-    ArrayList<Pin> getPins(){
+
+    public void setPins(ArrayList<Pin> pins) {
+        this.pins = pins;
+    }
+
+    public ArrayList<Pin> getAllPins(){
         return this.pins;
     }
-    public void add(Pin pin){
+
+    public Pin getPin(int indexOfPin){
+        return this.pins.get(indexOfPin);
+    }
+
+    public void addPin(Pin pin){
         this.pins.add(pin);
     }
-    public void remove(Pin pin){
+    public void removePin(Pin pin){
         this.pins.remove(pin);
     }
 }

@@ -6,9 +6,14 @@ import java.util.Date;
 
 public class Pin {
     String location;
-    int intensity;
+    String intensity;
     long dateOfPain;
     Time timeOfPain;
+
+    public Pin(String location, String intensity){
+        this.location = location;
+        this.intensity = intensity;
+    }
 
     public String getLocation() {
         return location;
@@ -18,11 +23,11 @@ public class Pin {
         this.location = location;
     }
 
-    public int getIntensity() {
+    public String getIntensity() {
         return intensity;
     }
 
-    public void setIntensity(int intensity) {
+    public void setIntensity(String intensity) {
         this.intensity = intensity;
     }
 
@@ -42,9 +47,13 @@ public class Pin {
         this.timeOfPain = timeOfPain;
     }
 
-    public Pin() {
+    /*public Pin() {
         this.location = "";
         this.intensity = 1;
         this.dateOfPain = Calendar.getInstance().getTime().getTime();
+    }*/
+
+    public String toString(){
+        return this.location + "\n" + "Intensity: " + this.intensity;
     }
 }
