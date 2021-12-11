@@ -54,6 +54,6 @@ public class Pin {
     }*/
 
     public String toString(){
-        return this.location + "\n" + "Intensity: " + this.intensity;
+        return "  " + this.location + "\n  " + "Intensity: " + this.intensity;
     }
 }

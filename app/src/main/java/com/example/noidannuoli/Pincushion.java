@@ -27,6 +27,10 @@ public class Pincushion {
         return this.pins.get(indexOfPin);
     }
 
+    public void deletePin(int indexOfPin){
+        this.pins.remove(indexOfPin);
+    }
+
     public void addPin(Pin pin){
         this.pins.add(pin);
     }
