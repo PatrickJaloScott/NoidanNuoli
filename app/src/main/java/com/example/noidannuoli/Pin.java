@@ -48,12 +48,6 @@ public class Pin {
         this.timeOfPain = timeOfPain;
     }
 
-    /*public Pin() {
-        this.location = "";
-        this.intensity = 1;
-        this.dateOfPain = Calendar.getInstance().getTime().getTime();
-    }*/
-
     public String toString(){
         return "  " + this.location + "\n  " + "Intensity: " + this.intensity + "\n  " + this.dateOfPain;
     }

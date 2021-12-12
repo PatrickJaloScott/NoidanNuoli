@@ -27,8 +27,6 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        Pincushion pincushion = Pincushion.getInstance();
-
         ListView lv = findViewById(R.id.listViewPins);
 
         pinList = new ArrayList<>();

@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -24,9 +26,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     EditText editedLocationtext;
-    EditText editedPainText;
     String selectedIntensity;
-    Spinner intensitySpinner;
     ArrayList<Pin> savedPins;
 
     @Override
@@ -60,11 +60,26 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = getSharedPreferences("info of pain", MODE_PRIVATE);
+        editedLocationtext = (EditText) findViewById(R.id.addPainText);
+        editedLocationtext.setText(sharedPreferences.getString("text of pain", ""));
 
     }
 
     public void calendarButtonPressed(View v) {
+        editedLocationtext = (EditText) findViewById(R.id.addPainText);
+        String checkText = editedLocationtext.getText().toString();
+        if (!(TextUtils.isEmpty(checkText))){
+            SharedPreferences sharedPreferences = getSharedPreferences("info of pain",MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("text of pain", checkText);
+            editor.apply();
+        }
         Intent intent = new Intent (MainActivity.this, CalendarActivity.class);
         startActivity(intent);
     }
@@ -72,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
     public void saveClick(View v) {
         editedLocationtext = (EditText) findViewById(R.id.addPainText);
         String text = editedLocationtext.getText().toString();
-        //editedPainText = (EditText) findViewById(R.id.painIntensityText);
-        //String intens = editedPainText.getText().toString();
         Intent dateFromCalendar = getIntent();
         String date = dateFromCalendar.getStringExtra("date");
         if (date == null) {
@@ -89,6 +102,11 @@ public class MainActivity extends AppCompatActivity {
             Pincushion.getInstance().addPin(pin);
             saveData();
         }
+        displayToast();
+    }
+
+    public void displayToast(){
+        Toast.makeText(MainActivity.this,"Saved", Toast.LENGTH_SHORT).show();
     }
 
     private void saveData(){
@@ -117,8 +135,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, HistoryActivity.class);
         startActivity(intent);
     }
-    /*public void changeToTest(View view) {
-        Intent intent = new Intent(this, TestPinActivity.class);
-        startActivity(intent);
-    }*/
 }

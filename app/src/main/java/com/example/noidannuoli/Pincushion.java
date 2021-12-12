@@ -35,6 +35,7 @@ public class Pincushion {
     public void addPin(Pin pin){
         this.pins.add(pin);
     }
+
     public void removePin(Pin pin){
         this.pins.remove(pin);
     }
