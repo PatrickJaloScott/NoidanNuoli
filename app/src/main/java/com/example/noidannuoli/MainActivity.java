@@ -18,5 +18,6 @@ public class MainActivity extends AppCompatActivity {
     public void changeToTest(View view) {
         Intent intent = new Intent(this, TestPinActivity.class);
         startActivity(intent);
+
     }
 }
