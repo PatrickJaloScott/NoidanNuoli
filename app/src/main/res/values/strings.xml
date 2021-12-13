@@ -2,7 +2,7 @@
     <string name="app_name">NoidanNuoli</string>
     <string name="enter_location">Where is the pain?</string>
     <string name="intensity_question">How intense is it?</string>
-    <string name="intensity_input">Enter intensity (1-5)</string>
+    <string name="intensity_input">Enter intensity (1–5)</string>
     <string name="enter_date">Enter Date</string>
     <string name="enter_time">Enter Time</string>
     <string name="enter_date_time">Enter Date and Time of pain</string>

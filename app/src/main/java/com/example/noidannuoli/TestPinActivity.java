@@ -32,7 +32,7 @@ public class TestPinActivity extends AppCompatActivity {
 
     }
 
-    public void addPin(View view) {
+    /*public void addPin(View view) {
         EditText editText = findViewById(R.id.editTextTextPinLocation);
         pinAddition.setLocation(editText.getText().toString());
         editText = findViewById(R.id.editTextIntensity);
@@ -43,5 +43,5 @@ public class TestPinActivity extends AppCompatActivity {
         pinCushion.add(pinAddition);
         //Intent intent = new Intent(this, MainActivity.class);
         finish();
-    }
+    }*/
 }
