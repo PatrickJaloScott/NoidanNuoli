@@ -10,11 +10,15 @@ import android.widget.CalendarView;
 public class CalendarActivity extends AppCompatActivity {
 
     private CalendarView pinCalendarView;
+    int x,y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+        x = getIntent().getExtras().getInt("x");
+        y = getIntent().getExtras().getInt("y");
 
         pinCalendarView = (CalendarView) findViewById(R.id.calendarViewPins);
 
@@ -25,6 +29,8 @@ public class CalendarActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(CalendarActivity.this, MainActivity.class);
                 intent.putExtra("date", date);
+                intent.putExtra("x", x);
+                intent.putExtra("y", y);
                 startActivity(intent);
             }
         });

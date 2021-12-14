@@ -25,15 +25,18 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText editedLocationtext;
+    EditText editedLocationText;
     String selectedIntensity;
     ArrayList<Pin> savedPins;
+    int x, y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        x = getIntent().getExtras().getInt("x");
+        y = getIntent().getExtras().getInt("y");
         loadData();
 
         Spinner intensitySpinner = (Spinner) findViewById(R.id.spinner_intensity);
@@ -66,14 +69,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         SharedPreferences sharedPreferences = getSharedPreferences("info of pain", MODE_PRIVATE);
-        editedLocationtext = (EditText) findViewById(R.id.addPainText);
-        editedLocationtext.setText(sharedPreferences.getString("text of pain", ""));
+        editedLocationText = (EditText) findViewById(R.id.addPainText);
+        editedLocationText.setText(sharedPreferences.getString("text of pain", ""));
 
     }
 
     public void calendarButtonPressed(View v) {
-        editedLocationtext = (EditText) findViewById(R.id.addPainText);
-        String checkText = editedLocationtext.getText().toString();
+        editedLocationText = (EditText) findViewById(R.id.addPainText);
+        String checkText = editedLocationText.getText().toString();
         if (!(TextUtils.isEmpty(checkText))){
             SharedPreferences sharedPreferences = getSharedPreferences("info of pain",MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -81,12 +84,14 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
         }
         Intent intent = new Intent (MainActivity.this, CalendarActivity.class);
+        intent.putExtra("x", x);
+        intent.putExtra("y", y);
         startActivity(intent);
     }
 
     public void saveClick(View v) {
-        editedLocationtext = (EditText) findViewById(R.id.addPainText);
-        String text = editedLocationtext.getText().toString();
+        editedLocationText = (EditText) findViewById(R.id.addPainText);
+        String text = editedLocationText.getText().toString();
         Intent dateFromCalendar = getIntent();
         String date = dateFromCalendar.getStringExtra("date");
         if (date == null) {
@@ -95,10 +100,14 @@ public class MainActivity extends AppCompatActivity {
             Date dateD = new Date(dateLong);
             String dateToday = simpleDateFormat.format(dateD);
             Pin pin = new Pin(text, selectedIntensity, dateToday);
+            pin.setX(x);
+            pin.setY(y);
             Pincushion.getInstance().addPin(pin);
             saveData();
         } else {
             Pin pin = new Pin(text, selectedIntensity, date);
+            pin.setX(x);
+            pin.setY(y);
             Pincushion.getInstance().addPin(pin);
             saveData();
         }
