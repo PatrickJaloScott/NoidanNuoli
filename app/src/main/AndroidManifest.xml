@@ -40,6 +40,10 @@
             android:exported="true"
             android:parentActivityName=".ModelActivity" />
         <activity
+            android:name=".GraphActivity"
+            android:exported="true"
+            android:parentActivityName=".HistoryActivity"/>
+        <activity
             android:name=".TestPinActivity"
             android:exported="true"
             android:parentActivityName=".MainActivity"></activity>

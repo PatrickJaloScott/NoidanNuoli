@@ -1,7 +1,5 @@
 package com.example.noidannuoli;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -22,7 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 
 public class MainActivity extends AppCompatActivity {
     EditText editedLocationText;
@@ -146,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void graphButtonPressed(View view) {
+    public void graphButtonPressed(View v) {
         Intent intent = new Intent(this, GraphActivity.class);
         startActivity(intent);
     }

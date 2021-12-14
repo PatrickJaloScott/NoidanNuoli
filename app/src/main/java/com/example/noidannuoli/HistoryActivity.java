@@ -1,26 +1,25 @@
 package com.example.noidannuoli;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class HistoryActivity extends AppCompatActivity {
     ArrayList<Pin> pinList;
-
+    Button graph;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +29,7 @@ public class HistoryActivity extends AppCompatActivity {
         ListView lv = findViewById(R.id.listViewPins);
 
         pinList = new ArrayList<>();
+        graph = findViewById(R.id.buttonGraph);
 
         loadData();
 
@@ -49,6 +49,11 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadData();
+    }
+
+    public void graphButton(View v){
+        Intent graph = new Intent(this, GraphActivity.class);
+        startActivity(graph);
     }
 
     private void loadData(){
