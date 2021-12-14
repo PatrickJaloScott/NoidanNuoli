@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoidanNuoli">
         <activity
+            android:name=".GraphActivity"
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".CalendarActivity"
             android:exported="false" />
         <activity
