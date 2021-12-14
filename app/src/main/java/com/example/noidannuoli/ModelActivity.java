@@ -92,7 +92,7 @@ public class ModelActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //this bit was originally written by either Sebastian or Patrick
+    //this bit was originally written by Sebastian
     private void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();

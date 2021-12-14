@@ -22,7 +22,7 @@ public class ConfirmNewActivity extends Activity {
         yes = findViewById(R.id.buttonYes);
         no = findViewById(R.id.buttonNo);
 
-        //shamelessly stole this bit from Patrick, I think it's for displaying this activity "on top of" the previous one
+        //shamelessly stole this bit from Sebastian, I think it's for displaying this activity "on top of" the previous one
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;

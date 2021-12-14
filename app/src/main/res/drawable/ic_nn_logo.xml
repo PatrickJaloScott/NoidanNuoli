@@ -1,6 +1,6 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="306dp"
-    android:height="306dp"
+    android:width="200dp"
+    android:height="200dp"
     android:viewportWidth="306"
     android:viewportHeight="306">
   <path
@@ -20,3 +20,6 @@
       android:strokeColor="#000000"
       android:strokeLineCap="square"/>
 </vector>
+    <!--
+    @author Janice Aaltonen
+    -->
