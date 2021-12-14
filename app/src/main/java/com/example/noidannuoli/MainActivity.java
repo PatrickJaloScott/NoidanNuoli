@@ -23,7 +23,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * The Class that has the functionality of the main page of the app.
+ * It has buttons that move you to other activities and data input fields.
+ * @author Sebastian Wolf
+ * @version 14.12.2021
+ */
 public class MainActivity extends AppCompatActivity {
     EditText editedLocationtext;
     String selectedIntensity;
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         loadData();
 
+        /* The spinner used to choose pain levels. Chosen value is stored in selectedIntensity variable */
         Spinner intensitySpinner = (Spinner) findViewById(R.id.spinner_intensity);
 
         final List<String> intensityLevelsList = new ArrayList<>();
@@ -71,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Activates when the calendar button is pressed. Takes the variable editedLocationText and stores its String in SharedPreferences
+     * if the Location of Pain EditText field is not empty.
+     * Then starts CalendarActivity
+     */
     public void calendarButtonPressed(View v) {
         editedLocationtext = (EditText) findViewById(R.id.addPainText);
         String checkText = editedLocationtext.getText().toString();
@@ -84,6 +95,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Activates when the save button is pressed. Saves a new instance of Pin object to Pincushion Singleton.
+     * Pin location is taken from EditText field addPainText,
+     * Pin intensity is from intensitySpinner and date is either from CalendarActivity via SharedPreferences or if the SharedPreferences
+     * returns null, the date is set to the current system date.
+     * Finally displays a Toast to show that the information has been saved.
+     */
     public void saveClick(View v) {
         editedLocationtext = (EditText) findViewById(R.id.addPainText);
         String text = editedLocationtext.getText().toString();
@@ -105,10 +123,16 @@ public class MainActivity extends AppCompatActivity {
         displayToast();
     }
 
+    /**
+     * Displays a Toast
+     */
     public void displayToast(){
         Toast.makeText(MainActivity.this,"Saved", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Used to save all instances of Pin in a gson-json string
+     */
     private void saveData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -118,6 +142,9 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    /**
+     * Used to get all data from saved gson-json string
+     */
     private void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
@@ -131,12 +158,20 @@ public class MainActivity extends AppCompatActivity {
         Pincushion.getInstance().setPins(savedPins);
     }
 
+    /**
+     * Activates when the History button is pressed and starts HistoryActivity
+     *
+     */
     public void historyButtonPressed(View v){
         Intent intent = new Intent(this, HistoryActivity.class);
         startActivity(intent);
 
     }
 
+    /**
+     *
+     * Activates when the Data button is pressed and starts Graphactivity
+     */
     public void graphButtonPressed(View view) {
         Intent intent = new Intent(this, GraphActivity.class);
         startActivity(intent);

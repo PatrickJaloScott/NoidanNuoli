@@ -18,6 +18,11 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * The Class that shows all saved objects of Pin in Pincushion's Arraylist in a ListView format
+ * @author Sebastian Wolf
+ * @version 14.12.2021
+ */
 public class HistoryActivity extends AppCompatActivity {
     ArrayList<Pin> pinList;
 
@@ -45,12 +50,18 @@ public class HistoryActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Used to refresh the ListView when user returns to Activity from HistoryDetailsActivity
+     */
     @Override
     protected void onResume() {
         super.onResume();
         loadData();
     }
 
+    /**
+     * Used to get all data from saved gson-json string
+     */
     private void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();

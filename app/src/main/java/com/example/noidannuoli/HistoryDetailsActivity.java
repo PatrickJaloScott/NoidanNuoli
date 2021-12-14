@@ -12,6 +12,12 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+/**
+ * The Class of an activity that opens when a specific Pin is clicked on in HistoryActivity's ListView
+ * and shows the information stored in the instance. Also has functionality to delete the chosen Pin
+ * @author Sebastian Wolf
+ * @version 14.12.2021
+ */
 public class HistoryDetailsActivity extends Activity {
     Pincushion pincushion;
     int indexOfPin;
@@ -21,6 +27,7 @@ public class HistoryDetailsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_details);
 
+        /* Here we make the activity's window smaller so it looks like pop up window*/
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
@@ -36,6 +43,10 @@ public class HistoryDetailsActivity extends Activity {
         ((TextView) findViewById(R.id.pinDetailText)).setText(pincushion.getPin(indexOfPin).toString());
     }
 
+    /**
+     * Activates when Delete button is pressed and deletes the chosen Pin and saves the new list
+     * Then goes to HistoryActivity
+     */
     public void deleteButtonPressed(View v){
         pincushion.deletePin(indexOfPin);
         saveData();
@@ -43,11 +54,17 @@ public class HistoryDetailsActivity extends Activity {
         startActivity(backToHistory);
     }
 
+    /**
+     * Activates when the Back button is pressed and returns the view to ActivityHistory
+     */
     public void backButtonPressed(View v){
         Intent backToHistory = new Intent(HistoryDetailsActivity.this, HistoryActivity.class);
         startActivity(backToHistory);
     }
 
+    /**
+     * Used to save the current Pincushion to json-gson
+     */
     private void saveData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
