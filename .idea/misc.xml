@@ -3,11 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/drawable-v24/ic_arrowpin.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/drawable/ic_arrowpin.xml" value="0.1890625" />
+        <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/drawable/ic_human.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/drawable/ic_humanmodel.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/drawable/ic_logo.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/drawable/ic_nn_logo.xml" value="0.1890625" />
+        <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/layout/activity_calendar.xml" value="0.2" />
+        <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/layout/activity_confirm_new.xml" value="0.2" />
+        <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/layout/activity_history_details.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/layout/activity_model_test.xml" value="0.176" />
+        <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/layout/activity_test_pin.xml" value="0.264" />
+        <entry key="..\:/Users/Jansku/AndroidStudioProjects/NoidanNuoli/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1640625" />
       </map>
     </option>
   </component>
