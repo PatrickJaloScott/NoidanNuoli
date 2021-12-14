@@ -143,5 +143,11 @@ public class MainActivity extends AppCompatActivity {
     public void historyButtonPressed(View v){
         Intent intent = new Intent(this, HistoryActivity.class);
         startActivity(intent);
+
+    }
+
+    public void graphButtonPressed(View view) {
+        Intent intent = new Intent(this, GraphActivity.class);
+        startActivity(intent);
     }
 }
