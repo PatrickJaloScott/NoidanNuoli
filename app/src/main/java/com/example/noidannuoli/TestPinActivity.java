@@ -32,16 +32,4 @@ public class TestPinActivity extends AppCompatActivity {
 
     }
 
-    /*public void addPin(View view) {
-        EditText editText = findViewById(R.id.editTextTextPinLocation);
-        pinAddition.setLocation(editText.getText().toString());
-        editText = findViewById(R.id.editTextIntensity);
-        pinAddition.setIntensity(Integer.parseInt(editText.getText().toString()));
-        CalendarView calendarView = findViewById(R.id.calendarView);
-        pinAddition.setDateOfPain(calendarView.getDate());
-
-        pinCushion.add(pinAddition);
-        //Intent intent = new Intent(this, MainActivity.class);
-        finish();
-    }*/
 }
