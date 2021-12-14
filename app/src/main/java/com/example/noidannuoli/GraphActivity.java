@@ -22,11 +22,14 @@ public class GraphActivity extends AppCompatActivity {
 
         pinData = Pincushion.getInstance().getAllPins();
 
-        GraphView graph = (GraphView) findViewById(R.id.pinGraph);
+        //Initialize variables and references
+        GraphView graph = findViewById(R.id.pinGraph);
         series = new LineGraphSeries<DataPoint>();
         int pinCount = pinData.size();
         double x = 0,y = 0;
+        //Loop through the list of pinData and add each pin to the Graph Series
         for (int i = 0; i<pinCount; i++) {
+            //The depiction of the graph separates the data points horizontally and the intensity of each pin is vertical
             x += 0.1;
             y = Double.parseDouble(pinData.get(i).intensity);
             series.appendData(new DataPoint(x, y), true, pinCount);
