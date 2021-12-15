@@ -11,7 +11,7 @@
         android:id="@+id/pinDetailText"
         android:layout_width="227dp"
         android:layout_height="195dp"
-        android:background="@color/purple_500"
+        android:background="#D83211"
         android:text="TextView"
         android:textColor="#F8F5F5"
         android:textSize="24sp"
