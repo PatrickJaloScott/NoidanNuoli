@@ -33,12 +33,15 @@ public class MainActivity extends AppCompatActivity {
     EditText editedLocationtext;
     String selectedIntensity;
     ArrayList<Pin> savedPins;
+    int x, y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        x = getIntent().getExtras().getInt("x");
+        y = getIntent().getExtras().getInt("y");
         loadData();
 
         /* The spinner used to choose pain levels. Chosen value is stored in selectedIntensity variable */
@@ -92,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
         }
         Intent intent = new Intent (MainActivity.this, CalendarActivity.class);
+        intent.putExtra("x", x);
+        intent.putExtra("y", y);
         startActivity(intent);
     }
 
@@ -113,10 +118,14 @@ public class MainActivity extends AppCompatActivity {
             Date dateD = new Date(dateLong);
             String dateToday = simpleDateFormat.format(dateD);
             Pin pin = new Pin(text, selectedIntensity, dateToday);
+            pin.setX(x);
+            pin.setY(y);
             Pincushion.getInstance().addPin(pin);
             saveData();
         } else {
             Pin pin = new Pin(text, selectedIntensity, date);
+            pin.setX(x);
+            pin.setY(y);
             Pincushion.getInstance().addPin(pin);
             saveData();
         }

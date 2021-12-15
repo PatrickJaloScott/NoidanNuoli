@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -25,7 +26,7 @@ import java.util.Collections;
  */
 public class HistoryActivity extends AppCompatActivity {
     ArrayList<Pin> pinList;
-
+    Button graph;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class HistoryActivity extends AppCompatActivity {
         ListView lv = findViewById(R.id.listViewPins);
 
         pinList = new ArrayList<>();
+        graph = findViewById(R.id.buttonGraph);
 
         loadData();
 
@@ -59,6 +61,15 @@ public class HistoryActivity extends AppCompatActivity {
         loadData();
     }
 
+    /**
+     *
+     * Sends to Graph Activity
+     */
+
+    public void graphButton(View v){
+        Intent graph = new Intent(this, GraphActivity.class);
+        startActivity(graph);
+    }
     /**
      * Used to get all data from saved gson-json string
      */

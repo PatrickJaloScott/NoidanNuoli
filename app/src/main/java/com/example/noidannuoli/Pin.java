@@ -1,5 +1,7 @@
 package com.example.noidannuoli;
 
+import android.graphics.Point;
+
 import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,6 +14,7 @@ public class Pin {
     String intensity;
     String dateOfPain;
     Time timeOfPain;
+    int x, y;
 
     public Pin(String location, String intensity, String dateOfPain){
         this.location = location;
@@ -49,6 +52,22 @@ public class Pin {
 
     public void setTimeOfPain(Time timeOfPain) {
         this.timeOfPain = timeOfPain;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public String toString(){

@@ -39,4 +39,8 @@ public class Pincushion {
     public void removePin(Pin pin){
         this.pins.remove(pin);
     }
+
+    public int getSize(){
+        return this.pins.size();
+    }
 }
